@@ -3,6 +3,7 @@ name: Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -30,7 +31,11 @@ jobs:
         with:
           path: dist
 
+  # deploy-pages 404s until Settings → Pages → Source is GitHub Actions.
+  # GITHUB_TOKEN cannot create the Pages site. Skip deploy until has_pages
+  # so the workflow stays green and failure emails stop.
   deploy:
+    if: github.event.repository.has_pages
     needs: build
     runs-on: ubuntu-latest
     environment:

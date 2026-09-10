@@ -8,10 +8,18 @@ Missions: **TAGESTOUR** · **AUTOFHRT** · **ÜBERNACHTUNG**, plus a thin **FLUG
 
 ## Live (iPhone)
 
-- App: **https://ckaerospace.github.io/flight-bag/**
+- Intended app URL: **https://ckaerospace.github.io/flight-bag/**
 - Code: **https://github.com/ckaerospace/flight-bag**
 
-Render Blueprint is in `render.yaml` (`npm install && npm run build` → publish `dist`). A live `*.onrender.com` URL needs a Render login (this agent’s Render MCP was unauthorized).
+The Pages **build** job is green (`npm install`, icon script, `npm run build`). **Deploy** waits until GitHub Pages is switched on once:
+
+1. Open [Settings → Pages](https://github.com/ckaerospace/flight-bag/settings/pages)
+2. Build and deployment → Source → **GitHub Actions**
+3. Actions → Pages → **Run workflow** (or push to `main`)
+
+Until that click, `actions/deploy-pages` returns 404 (Pages site does not exist yet). The workflow skips deploy while `has_pages` is false so failure emails stop.
+
+Render Blueprint is in `render.yaml` (`python3 scripts/generate-icons.py && npm install && npm run build` → publish `dist`). A live `*.onrender.com` URL needs a Render login (this agent’s Render MCP was unauthorized).
 
 ## Zum Home-Bildschirm (iPhone Safari)
 
