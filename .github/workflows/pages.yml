@@ -23,7 +23,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: python3 scripts/generate-icons.py
-      - run: npm install
+      - run: npm ci
       - run: npm run build
         env:
           BASE_PATH: /flight-bag/
