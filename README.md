@@ -8,25 +8,16 @@ Missions: **TAGESTOUR** · **AUTOFHRT** · **ÜBERNACHTUNG**, plus a thin **FLUG
 
 ## Live (iPhone)
 
+- App: **https://ckaerospace.github.io/flight-bag/**
 - Code: **https://github.com/ckaerospace/flight-bag**
-- GitHub Pages workflow is **removed** (no Actions on push — failure emails stop).
-- Host on **Render** from `render.yaml` (same pattern as baby-outfit-guide):
 
-  - Build: `python3 scripts/generate-icons.py && npm install && npm run build`
-  - Publish: `dist`
-  - Auto-deploy: `main`
-
-  The icon script is stdlib-only (no Pillow). Icons also live under `public/`.
-
-  A live `*.onrender.com` URL needs a Render login in the dashboard or MCP. This agent’s Render account is unauthorized, so no `onrender.com` URL was created from here.
-
-## Zum Home-Bildschirm (iPhone Safari)
+GitHub Pages builds from Actions (`BASE_PATH=/flight-bag/`). If the URL is 404, open [Settings → Pages](https://github.com/ckaerospace/flight-bag/settings/pages) and set Source to **GitHub Actions**, then re-run the Pages workflow.
 
 ## Zum Home-Bildschirm (iPhone Safari)
 
 Chrome oder In-App-Browser geben auf iOS **kein** echtes Home-Screen-App. **Safari** verwenden.
 
-1. Im **Safari** die Render-URL öffnen (nach dem Deploy).
+1. Im **Safari** diese Adresse öffnen: `https://ckaerospace.github.io/flight-bag/`
 2. Unten **Teilen** tippen (Quadrat mit Pfeil).
 3. **Zum Home-Bildschirm** tippen.
 4. Name **Flight Bag** lassen (oder kürzen) → **Hinzufügen**.
