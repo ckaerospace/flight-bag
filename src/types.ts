@@ -31,7 +31,8 @@ export interface Item {
 
 export interface Phase {
   id: PhaseId
-  items: Item[]n}
+  items: Item[]
+}
 
 export interface Mission {
   id: MissionId
