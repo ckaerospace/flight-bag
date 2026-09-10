@@ -27,6 +27,12 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /flight-bag/
+      # Best-effort: create the Pages site if this token is allowed to.
+      # continue-on-error keeps the green build when the API returns 403/404.
+      - uses: actions/configure-pages@v5
+        continue-on-error: true
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
