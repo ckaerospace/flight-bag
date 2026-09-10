@@ -8,24 +8,25 @@ Missions: **TAGESTOUR** · **AUTOFHRT** · **ÜBERNACHTUNG**, plus a thin **FLUG
 
 ## Live (iPhone)
 
-- Intended app URL: **https://ckaerospace.github.io/flight-bag/**
 - Code: **https://github.com/ckaerospace/flight-bag**
+- GitHub Pages workflow is **removed** (no Actions on push — failure emails stop).
+- Host on **Render** from `render.yaml` (same pattern as baby-outfit-guide):
 
-The Pages **build** job is green (`npm install`, icon script, `npm run build`). **Deploy** waits until GitHub Pages is switched on once:
+  - Build: `python3 scripts/generate-icons.py && npm install && npm run build`
+  - Publish: `dist`
+  - Auto-deploy: `main`
 
-1. Open [Settings → Pages](https://github.com/ckaerospace/flight-bag/settings/pages)
-2. Build and deployment → Source → **GitHub Actions**
-3. Actions → Pages → **Run workflow** (or push to `main`)
+  The icon script is stdlib-only (no Pillow). Icons also live under `public/`.
 
-Until that click, `actions/deploy-pages` returns 404 (Pages site does not exist yet). The workflow skips deploy while `has_pages` is false so failure emails stop.
+  A live `*.onrender.com` URL needs a Render login in the dashboard or MCP. This agent’s Render account is unauthorized, so no `onrender.com` URL was created from here.
 
-Render Blueprint is in `render.yaml` (`python3 scripts/generate-icons.py && npm install && npm run build` → publish `dist`). A live `*.onrender.com` URL needs a Render login (this agent’s Render MCP was unauthorized).
+## Zum Home-Bildschirm (iPhone Safari)
 
 ## Zum Home-Bildschirm (iPhone Safari)
 
 Chrome oder In-App-Browser geben auf iOS **kein** echtes Home-Screen-App. **Safari** verwenden.
 
-1. Im **Safari** diese Adresse öffnen: `https://ckaerospace.github.io/flight-bag/`
+1. Im **Safari** die Render-URL öffnen (nach dem Deploy).
 2. Unten **Teilen** tippen (Quadrat mit Pfeil).
 3. **Zum Home-Bildschirm** tippen.
 4. Name **Flight Bag** lassen (oder kürzen) → **Hinzufügen**.
